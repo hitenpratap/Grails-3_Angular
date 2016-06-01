@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col l3">
+<div id="status" role="complementary">
+    <h5>Application Status:{{vm.msg}}</h5>
+    <ul>
+        <li>Environment: {{vm.applicationData.environment}}</li>
+        <li>App profile: {{vm.applicationData.appprofile}}</li>
+        <li>App version: {{vm.applicationData.appversion}}</li>
+        <li>Grails version: {{vm.applicationData.grailsversion}}</li>
+        <li>Groovy version: {{vm.applicationData.groovyversion}}</li>
+        <li>JVM version: {{vm.applicationData.jvmversion}}</li>
+        <li>Reloading active: {{vm.applicationData.reloadingagentenabled}}</li>
+    </ul>
+    <h5>Artefacts</h5>
+    <ul>
+        <li>Controllers: {{vm.applicationData.artefacts.controllers}}</li>
+        <li>Domains: {{vm.applicationData.artefacts.domains}}</li>
+        <li>Services: {{vm.applicationData.artefacts.services}}</li>
+    </ul>
+    <h5>Installed Plugins</h5>
+    <ul>
+        <li ng-repeat="plugin in vm.applicationData.plugins">{{plugin.name}} - {{plugin.version}}</li>
+    </ul>
+</div>
+    </div>
+    <div class="col l9">
+<div id="page-body" role="main">
+    <h1>Welcome to Grails</h1>
+    <p>Congratulations, you have successfully started your first Grails application! At the moment
+        this is the default page, feel free to modify it to either redirect to a controller or display whatever
+        content you may choose. Below is a list of controllers that are currently deployed in this application,
+        click on each to execute its default action:</p>
+
+    <div id="controller-list" role="navigation">
+        <h2>Available Controllers:</h2>
+        <ul>
+            <li ng-repeat="c in vm.applicationData.controllers" class="controller">
+                <a href="#{{vm.contextPath}}/{{c.logicalPropertyName}}">{{c.name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+</div>
